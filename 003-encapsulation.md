@@ -9,8 +9,10 @@ One of the mechanisms used to achieve information hiding in OOP languages is thr
 
 ## Why would we want encapsulation?
 
-In OOP we don't treat objects just as bags with properties, data structures, or types.
+In OOP we don’t treat objects just as bags with properties, data structures, or types.
+
 We visualize them as self-contained units with their own internal state and internal processes. The entire idea behind encapsulation is not to worry about that internal state, and those internal processes.
+
 The goal of the object is to expose us just the necessary information to work with it: a public interface.
 
 ## Information hiding is all about access
@@ -36,6 +38,8 @@ Both properties are public, so any one (in any point of the program's life) we c
 Then we access the value associated with the property name on the object john and we get (as we expected) "John Doe".
 
 And then in the following line we change the value of name to "Jenny Doe".
+
+## Simulating Private Properties
 
 Due to the lack of access modifiers some developers came up with a convention:
 Everything that is part of the "private" api should be prefixed with an underscore (_).
@@ -136,6 +140,8 @@ We create a function called `person` that takes a `name`, `age` and `privateKey`
 
 If we create a person and pass "John Doe', 21 and "Secret" we get an object with only the properties age and name.
 
+## Getters: read private stae
+
 Now encapsulation is not only about data privacy or information hiding, it's about limiting the access of a property or method.
 
 In many cases we need to have read-only properties.
@@ -180,9 +186,9 @@ john.getApiKey(); // '123'
 
 This doesn't change the value returned by `getApiKey` because the value it references is not on the object itself, but in a scope.
 
-The trick is to think of objects in terms of modules.
+## Setters: update internal state
 
-The object/module exposes us an interface to work with, so we don't have to worry about its internals.
+The object/module exposes us an interface to work with, so we don’t have to worry about its internals.
 
 If we need to change an internal state then the object should expose us a mechanism on the api to do so.
 
