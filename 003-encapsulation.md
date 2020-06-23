@@ -1,16 +1,19 @@
 # Encapsulation
 
-In the context of OOP: encapsulation is a mechanism or technique to restrict access to the internals of an object.
+In the context of OOP: encapsulation is a mechanism or technique to avoid leaking the implementation details of an object.
+This process is achieved thru the use of information hiding and abstractions.
 
-One of the mechanisms used to achieve this in OOP languages is thru the use of access modifiers (public, private, protected).
+> In this blog post we're gonna focus just in the usage of information hiding.
+
+One of the mechanisms used to achieve information hiding in OOP languages is thru the use of access modifiers (public, private, protected).
 
 ## Why would we want encapsulation?
 
-In OOP we don't treat objects just as a bag with properties, a data structure, or a type.
+In OOP we don't treat objects just as bags with properties, data structures, or types.
+We visualize them as self-contained units with their own internal state and internal processes. The entire idea behind encapsulation is not to worry about that internal state, and those internal processes.
+The goal of the object is to expose us just the necessary information to work with it: a public interface.
 
-We visualize it as unit with its own internal state and internal processes. The entire idea behind encapsulation is not to worry about that internal state, and those internal processes. So, the goal of the object is just to expose us information to work with: a public interface.
-
-## It's all about access
+## Information hiding is all about access
 
 Prior to es2019 we didn't have access modifiers on JavaScript. In fact all properties in objects are pubic.
 
