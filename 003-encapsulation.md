@@ -1,6 +1,6 @@
 # Encapsulation
 
-In the context of OOP: encapsulation is a mechanism or technique to avoid leaking the implementation details of an object.
+In the context of OOP: encapsulation is a mechanism or technique used to avoid leaking the implementation details of an object.
 This process is achieved thru the use of information hiding and abstractions.
 
 > In this blog post we're gonna focus just in the usage of information hiding.
