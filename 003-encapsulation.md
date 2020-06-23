@@ -1,14 +1,16 @@
 # Encapsulation
 
-In the context of OOP: encapsulation is a mechanism or technique to restrict acces to properties
+In the context of OOP: encapsulation is a mechanism or technique to restrict access to properties
 
-One of the mechanisms used to achieve this in OOP lenguages is thru the use of access modifiers (public, private, protected).
+One of the mechanisms used to achieve this in OOP languages is thru the use of access modifiers (public, private, protected).
 
 ## Why would we want encapsulation?
 
 In OOP we don't treat objects just as a bag with properties, a data structure, or a type.
 
-We visualize it as unit with it's own internal state and internal processes. The entire idea behind encapsulation is not to worry about that internal state, and those internal proccesses. So, the goal of the object is just to expose us information to work with: a public interface.
+We visualize it as unit with its own internal state and internal processes. The entire idea behind encapsulation is not to worry about that internal state, and those internal processes. So, the goal of the object is just to expose us information to work with: a public interface.
+
+## It's all about access
 
 Prior to es2019 we didn't have access modifiers on JavaScript. In fact all properties in objects are pubic.
 
@@ -28,7 +30,7 @@ john.name = "Jenny Doe";
 In this example we have an object with "John Doe" as name, and 21 as age.
 Both properties are public, so any one (in any point of the program's life) we can access and modify them.
 
-Then we acces the value associated with the property name on the object john and we get (as we expected) "John Doe".
+Then we access the value associated with the property name on the object john and we get (as we expected) "John Doe".
 
 And then in the following line we change the value of name to "Jenny Doe".
 
@@ -51,9 +53,11 @@ john._privateKey = "oopsis";
 john._privateKey; // 'oopsis'
 ```
 
-If we take the previos object and associate the value `secret` to `_privateKey` we are telling to whomever is gonna use this object/module that it shouldn't touch it
+If we take the previos object and associate the value `secret` to `_privateKey` we are telling to whoever is gonna use this object/module that it shouldn't touch it
 
 But, again, we have the same issue, and just like with any other property we can try to acces it and modify it
+
+## Meta-properties and Enumerability
 
 Another approached that emerged was to change the enumerability of properties.
 Every property has meta-properties (in other words properties of properties).
@@ -82,16 +86,17 @@ john._privateInfo = "oopsis";
 
 We have again our object `john` with `John Doe` as name and `21` as `age`.
 
-And to define a new property and set it's meta properties we use `Object.defineProperty`.
-Object.define property takes as first argument the object that we're gonna attacht the property, as second argument the name of the property and as third argument an object representing the meta-properties (in which the value is included).
+And to define a new property and set its meta properties we use `Object.defineProperty`.
 
-So we set the property `_privateKey` on the object john, with the value `secret` and we set it's enumerability to `false`.
+Object.define property takes as first argument the object that we're gonna attach the property, as second argument the name of the property and as third argument an object representing the meta-properties (in which the value is included).
+
+So we set the property `_privateKey` on the object john, with the value `secret` and we set its enumerability to `false`.
 
 With this if we try to log the object `john` we'll only get the properties `name` and `age`.
 
-By default all properties are enumerables.
+All properties are enumerables by default.
 
-Even though this seems to work, we can still acces the property.
+Even though this seems to work, we can still access the property.
 
 And even worse, we can still modify it.
 
@@ -102,9 +107,11 @@ Object.getOwnPropertyNames(john); // ['name', 'age', '_privateKey']
 ```
 
 With `Object.getOwnPropertyNames` we get an array with `name`, `age` and `_privateKey`
-So, this approach doesn't give us encapsulation neither
+So, this approach doesn't give us encapsulation neither.
 
-Fortunately we have a third approach that works (kinda)
+Fortunately we have a third approach that works (kinda).
+
+## Factory Functions + Closures
 
 Instead of using object literals (or functions as constructors) to create objects we're gonna use factory functions and closures.
 
@@ -129,7 +136,7 @@ If we create a person and pass "John Doe', 21 and "Secret" we get an object with
 Now encapsulation is not only about data privacy or information hiding, it's about limiting the access of a property or method.
 
 In many cases we need to have read-only properties.
-Properties that can't (or shouldn't) change over time, but that we should be able to access
+Properties that can't (or shouldn't) change over time, but that we should be able to access.
 
 ```js
 // person :: (String, Number, String) -> IPerson
@@ -157,8 +164,8 @@ And with this getter we can access the `apiKey` inside our closure.
 
 The cool thing about this approach is that we can create as many  objects as we want.
 
-Every time we execute the function `person` we create a new function scope, and a new closure (thru the function getApiKey). So, every object created thru `person`
-has it'sown reference to a unique scope with unique values.
+Every time we execute the function `person` we create a new function scope, and a new closure (thru the function `getApiKey`). So, every object created thru `person`
+has its own reference to a unique scope with unique values.
 
 If we try to add a property `apiKey` to the object, there's nothing to stop us.
 
@@ -168,7 +175,7 @@ john.apiKey = "other-api-key";
 john.getApiKey(); // '123'
 ```
 
-This doens't change the value returned by `getApiKey` because the value it references is not on the object itself, but in an scope
+This doesn't change the value returned by `getApiKey` because the value it references is not on the object itself, but in a scope.
 
 The trick is to think of objects in terms of modules.
 
@@ -202,10 +209,13 @@ john.setName('Jenny Doe')
 john.getName() // 'Jenny Doe'
 ```
 
-In this case we have the same factory function person, but instead of exposing the property name we expose a getter `getName` and the setter `setName`. `setName` is a function that allows us to change the internal value of `name` on the object.
+In this case we have the same factory function person, but instead of exposing the property name we expose a getter `getName` and the setter `setName`.
+
+`setName` is a function that allows us to change the internal value of `name` on the object.
 
 It's considered an anti-pattern to provide a setter and a getter for a private property.
-If we provide both then we're givin full access to the property, therefore making the entire idea of having a private property pointless.
+
+If we provide both then we're giving full access to the property, therefore making the entire idea of having a private property pointless.
 
 ## Summary:
 
@@ -213,5 +223,5 @@ Encapsulations is used to limit the access to the internals of an object.
 
 An object is more than a collection of data, but something that we interact with thru a public interface
 
-JavaScript doesn't have access modifiers built in on objects, but we can use some techniquest to try to replicate this behavior. Been the mos effective factory functions + closures.
+JavaScript doesn't have access modifiers built-in on objects, but we can use some techniques to try to replicate this behavior. Been the mos effective factory functions + closures.
 
