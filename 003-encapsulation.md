@@ -95,7 +95,7 @@ We have again our object `john` with `John Doe` as name and `21` as `age`.
 
 And to define a new property and set its meta properties we use `Object.defineProperty`.
 
-Object.define property takes as first argument the object that we're gonna attach the property, as second argument the name of the property and as third argument an object representing the meta-properties (in which the value is included).
+`Object.defineProperty` takes as first argument the object that we're gonna attach the property, as second argument the name of the property and as third argument an object representing the meta-properties (in which the value is included).
 
 So we set the property `_privateKey` on the object john, with the value `secret` and we set its enumerability to `false`.
 
