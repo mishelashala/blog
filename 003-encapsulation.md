@@ -1,6 +1,6 @@
 # Encapsulation
 
-In the context of OOP: encapsulation is a mechanism or technique to restrict access to properties
+In the context of OOP: encapsulation is a mechanism or technique to restrict access to the internals of an object.
 
 One of the mechanisms used to achieve this in OOP languages is thru the use of access modifiers (public, private, protected).
 
