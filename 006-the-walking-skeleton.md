@@ -2,17 +2,17 @@
 
 ## Contexto
 
-Originalmente esto iba a ser un resumen sobre el libro. Pero despues de pasar un par de horas escribiendo me di cuenta de que literalmente no solo no estaba resumiendo secciones completas del libro, si no que ademas constantemente terminaba diciendo "puedes saltarte esta parte" o "puedes saltarte esta seccion". Y no porque no aportaran nada, sino porque al ser un libro escrito en Java para gente que hace Java (u orientado a objetos) muchos de los temas estaban acoplados con Java. Es decir, fuera del contexto de Java no agregaban valor.
+Originalmente esto iba a ser un resumen sobre Growing Object Oriented Systems - Guided by Tests, pero despues de pasar un par de horas escribiendo me di cuenta de que literalmente no solo no estaba resumiendo secciones completas del libro, si no que ademas constantemente terminaba diciendo "puedes saltarte esta parte" o "puedes saltarte esta seccion". Y no porque no aportaran nada, sino porque al ser un libro escrito en Java para gente que hace Java (u orientado a objetos) muchos de los temas estaban acoplados con Java. Es decir, fuera del contexto de Java no agregaban valor.
 
 Asi que decidi tirar el todo lo que escribi y en lugar de hacer un resumen del libro, sus secciones y sus capitulos voy a enfocarme en compartir y ahondar en las ideas que mas me llamaron la atencion y que ademas se pueden aplicar en multiples contextos.
 
 ## El software como una planta productiva
 
-El libro comienza con un prefacio por parte de Kent Beck (el creador de TDD). El nos habla de una analogia: el software-planta.
+El libro comienza con un prefacio escrito por Kent Beck (el creador de TDD). El nos habla de una analogia: el software-planta.
 
 La premisa de esta analogia es la idea de que tenemos un perspectiva erronea de la naturaleza del software. Vemos el software como algo fijo, algo que una vez escrito no deberia cambiar. Esta perspectiva es erronea porque lo unico constante en el desarrollo de software es el cambio. Cambian las necesides, cambian los requerimientos, cambia las reglas del negocio, cambia todo.
 
-Construir software bajo la premisa de que una vez escrito no deberia cambiar es un error garrafal. El codigo y los sistemas deben evolucionar, crecer y adaptarse. La analogia del software-planta nos plantea la perspectiva de que los sistemas son en realidad como plantas. Pero no cualquier tipo de planta, sino una planta productiva, una planta que produce frutos.
+Construir software bajo la premisa de que una vez escrito eset ya no deberia cambiar es un error garrafal. El codigo y los sistemas deben evolucionar, crecer y adaptarse. La analogia de Kent Beck nos plantea la perspectiva de que los sistemas son en realidad como plantas. Pero no cualquier tipo de planta, sino una planta productiva, una planta que produce frutos.
 
 Una planta require tierra, abono, agua y cuidados. La planta empieza siendo una semilla, pero no se mantiene una semilla de forma indefinida. Conforme pasa el tiempo crece, cambia y se convierte en algo mas. Si una planta es cuidada y sus necesides son cubiertas, no solo producira fruto, sino que lo hara por muchisimo tiempo.
 
@@ -52,7 +52,7 @@ La calidad externa depende directamente de la calidad interna. Si nuestro softwa
 
 Las pruebas como dijimos, son una herramiento que nos dan feedback. Una de las dimensiones sobre las que nos dan feedback es la calidad de nuestro software. Pero como ya vimos existen dos dimensiones de calidad.
 
-Cada tipo de prueba nos da feedback en cada dimension en diferente proporcion.
+Cada tipo de prueba nos da feedback en cada dimension pero en diferente proporcion.
 
 Las pruebas unitarias nos dan feedback sobre la calidad interna. Un requisito para que podamos escribir una prueba unitaria es que el codigo que estamos probando este bien disenado. Es decir, que tenga altos niveles de calidad interna.
 
@@ -82,7 +82,7 @@ Pero este bucle pequeno a su vez forma parte de un bucle mas grande que funciona
 
 Este approach funciona de forma top down, de arriba hacia abajo. Primero escribimos una prueba e2e de aceptacion, corremos la prueba para ver que falle y despues comenzamos a escribir el codigo necesario para hacer que la prueba pase, pero, y aqui es donde esta lo interesante es que para poder satisfacer la prueba de integracion tenemos que escribir codigo, pero debido a que estamos siguiendo TDD no podemos escribir codigo sin haber escrito una prueba primero. De manera que pasamos estar en el bucle exterior a estar en el bucle interior. Dentro del bucle interior escribirmos nuestra prueba unitaria, corremos la prueba para ver que falle, despues escribimos el codigo minimo necesario para hacer que esta prueba pase.
 
-No podremos salir del bucle interior hasta que todos y cada uno de las unidades que necesitemos para hacer que el feature este completo esten terminadas.
+No podremos salir del bucle interior hasta que todas y cada uno de las unidades que necesitemos para hacer que el feature este completo esten terminadas.
 
 ## Trabajar en slices, no en capas
 
@@ -126,9 +126,19 @@ Una de las razones por las que el approach de los dos bucles y el walking skelet
 
 Y debido a que podemos medir la calidad interna y externa de nuestro sistema con las pruebas cada vez que la calidad se degrade podemos iterar en el diseno para revertir o incluso mejorar la calidad. En otras palabras nos permite tener un proceso iterativo.
 
-## Solo es la punta del iceberg...
+## Resumiendo
 
-Estas no son ni de chistes todas las ideas que aborda el libro, pero si son las ideas que mas me llamaron la atencion. El libro cubre otras muchas cosas mas, pero preferi no cubrirlas, no solo por cuestiones de tiempo, sino porque estas ideas son las que mas me han ayudado en mi dia a dia.
+No suena como mucho, pero al menos para mi fueron un game changer.
+
+Resumiendo: el walking skeleton y los bucles nos obligan a tener un sistema que:
+
+- es deployable desde el principio
+- nos fuerza a seguir integracion temprana
+- nos obliga de automatizar el deployment
+- seguir un ritmo de trabajo incremental e iterativo
+- disenar solo que necesitamos en el momento
+- nos permite medir tanto la calidad interna como la externa
+- e capaz de evolicionar con el tiempo
 
 ## Opinion del libro
 
@@ -136,4 +146,4 @@ Este es uno de mis libros favoritos sobre testing en general. Los conceptos de e
 
 Cuando un amigo me recomendo este libro hace un ano yo estaba tratando justamente de lidiar con la complejidad inherente de tener un sistema bastante grande que habiamos empezado desde cero. No solo resolvio muchos de los problemas con los que yo estaba lidiando en ese momento sino que ademas me forzo a cambiar la forma en la que escribo mis pruebas, sino tambien la forma en la que escribo mi codigo y la forma en la que decido empezar a construir funcionalidad nueva.
 
-Es un libro que yo recomiendo que los programadores que si escriben pruebas lean si o si. No es una guia definitiva sobre TDD o sobre pruebas de aceptacion, pero si un libro que complementa y empodera tus habilidades de testing y la forma en la que construimos, entregamos y mantenemos software.
+Es un libro que yo recomiendo que los programadores que escriben pruebas lean si o si. No es una guia definitiva sobre TDD o sobre pruebas de aceptacion, pero si un libro que complementa y empodera tus habilidades de testing y la forma en la que construimos, entregamos y mantenemos software.
