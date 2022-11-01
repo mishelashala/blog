@@ -2,7 +2,7 @@
 
 Value Objects are cool, well, kinda.
 
-## Primivite Obsession
+## Primitive Obsession
 
 Let's take a look at a simple user type definition:
 
