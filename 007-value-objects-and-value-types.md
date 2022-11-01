@@ -500,3 +500,12 @@ But at the same type they introduce new problems:
 - We need to come up with both a type definition and a creation mechanism
 
 Personally I prefer value types over value objects. Not only because I don't have to use OOP patterns, but because they have extra benefits and none of the downsides of value objects.
+
+# Further Reading
+
+- [ValueObject](https://wiki.c2.com/?ValueObject)
+- [ValueObjectsShouldBeImmutable](https://wiki.c2.com/?ValueObjectsShouldBeImmutable)
+- [ValueObjectHypotheses](http://wiki.c2.com/?ValueObjectHypotheses)
+- [DDD: Reference](https://www.domainlanguage.com/wp-content/uploads/2016/05/DDD_Reference_2015-03.pdf)
+- [Domain Modeling Made Functional](https://pragprog.com/titles/swdddf/domain-modeling-made-functional/)
+- [Domain-Driven Design: Tackling Complexity in the Heart of Software](https://www.amazon.com/-/es/Eric-Evans/dp/0321125215)
