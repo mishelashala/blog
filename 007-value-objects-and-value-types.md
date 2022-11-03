@@ -1,6 +1,8 @@
 # Value Objects and Value Types
 
-Value Objects are cool, well, kinda.
+Value Objects are a pattern used in Object Oriented Programming to solve the lack of semantics and invariant enforcements that primitives suffer from.
+
+Value Objects have some advantages, but they also have some downsides, fortunately there's another pattern that builds on top of the concepts that Value Objects introduce that not only removes their downsides, but also introduce some other benefits.
 
 ## Primitive Obsession
 
