@@ -4,6 +4,8 @@ Value Objects are a pattern used in Object Oriented Programming to solve the lac
 
 Value Objects have some advantages, but they also have some downsides, fortunately there's another pattern that builds on top of the concepts that Value Objects introduce that not only removes their downsides, but also introduce some other benefits.
 
+But before talking about value objects we need to disscuss the problem they solve: primitive obsession.
+
 ## Primitive Obsession
 
 Let's take a look at a simple user type definition:
@@ -289,7 +291,7 @@ This is something that we must always thake into account. Every time we define a
 class Age {
   value: string;
 
-  constructr(value: number) {
+  constructor(value: number) {
     if (typeof value !== "number") {
       throw new Error("Age: value must be a number");
     }
@@ -480,7 +482,7 @@ Value Objects have a set of benefits:
 
 But value objects also have a set of downsides:
 
-- They heavely on classes
+- They rely heavely on classes
 - We must come up with our own comparation mechanism
 - We cannot access values directely
 
